@@ -8,5 +8,7 @@ export class CoursesService {
   ];
   getAllCourses() {
     return this.courses;
+    // this.courses = await Course.find({}); // mongodb
+    // return this.courses;
   }
 }
