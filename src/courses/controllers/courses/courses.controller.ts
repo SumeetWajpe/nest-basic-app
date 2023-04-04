@@ -11,15 +11,17 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { CreateNewCourseDTO } from 'src/courses/dtos/newcourse.dto';
+import { CoursesService } from 'src/courses/services/courses/courses.service';
 
 @Controller('courses')
 export class CoursesController {
+  /**
+   *
+   */
+  constructor(private servObj: CoursesService) {}
   @Get()
   getCourses() {
-    return [
-      { id: 1, title: 'React' },
-      { id: 2, title: 'Redux' },
-    ];
+    return this.servObj.getAllCourses();
   }
 
   @Get('reviews')
