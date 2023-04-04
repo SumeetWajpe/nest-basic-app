@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Req,
   Res,
@@ -27,8 +28,8 @@ export class CoursesController {
   }
 
   @Get(':id')
-  getCoursesById(@Param('id') id: string) {
-    console.log(id);
+  getCoursesById(@Param('id', ParseIntPipe) id: number) {
+    console.log(typeof id);
     return { id };
   }
 
