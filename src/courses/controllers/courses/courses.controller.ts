@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Param, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
+import { CreateNewCourseDTO } from 'src/courses/dtos/newcourse.dto';
 
 @Controller('courses')
 export class CoursesController {
@@ -19,5 +20,11 @@ export class CoursesController {
   getCoursesById(@Param('id') id: string) {
     console.log(id);
     return { id };
+  }
+
+  @Post('newcourse')
+  createCourse(@Body() courseData: CreateNewCourseDTO) {
+    console.log(courseData);
+    return {};
   }
 }
