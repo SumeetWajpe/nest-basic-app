@@ -9,4 +9,9 @@ export class CoursesController {
       { id: 2, title: 'Redux' },
     ];
   }
+
+  @Get('reviews')
+  getReviews() {
+    return [{ id: 1, content: 'That is good !' }];
+  }
 }
