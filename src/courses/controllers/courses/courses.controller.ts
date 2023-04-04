@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Req,
+  Res,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { CreateNewCourseDTO } from 'src/courses/dtos/newcourse.dto';
 
 @Controller('courses')
@@ -23,6 +33,7 @@ export class CoursesController {
   }
 
   @Post('newcourse')
+  @UsePipes(new ValidationPipe())
   createCourse(@Body() courseData: CreateNewCourseDTO) {
     console.log(courseData);
     return {};
